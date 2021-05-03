@@ -1,0 +1,35 @@
+{
+  "name": "node-shopping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start:dev": "nodemon  -r dotenv/config --exec babel-node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css-build": "node-sass --omit-source-map-url src/public/scss/app.scss src/public/css/app.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "bulma": "^0.9.2",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "node-sass": "^5.0.0",
+    "node-sass-middleware": "^0.11.0",
+    "pug": "^3.0.2",
+    "sequelize": "^6.6.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/node": "^7.13.13",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.13.12",
+    "autoprefixer": "^10.2.5",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.7",
+    "postcss": "^8.2.9",
+    "postcss-import": "^14.0.1"
+  }
+}

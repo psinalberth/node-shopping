@@ -1,0 +1,31 @@
+extends ../layouts/main-layout.pug
+
+block content
+  .container.is-fluid
+    main(style="padding: 1.5rem 0")
+      .title
+        span.has-text-grey-dark Products
+        span.has-text-warning  for you! 
+      p.subtitle.has-text-grey Check out our catalog!
+      .columns.is-multiline
+        each product in products
+          .column.is-one-quarter
+            .card
+              .card-image
+                figure.image
+                  img(src=`${ product.imageUrl }`, style="height: 256px")
+              .card-content
+                .content.text-shrink
+                  p.title.is-6 #{ product.title }
+                  p #{ product.description }
+              .card-footer
+                .card-footer-item
+                  .buttons
+                    button.button.is-warning
+                      span.icon
+                        i.fas.fa-shopping-cart
+                      span Add to Cart
+                    button.button.is-light
+                      span.icon
+                        i.fas.fa-heart
+                      span Wishlist

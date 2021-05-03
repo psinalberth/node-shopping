@@ -1,0 +1,9 @@
+@import url(../bulma/css/bulma.css);
+
+.text-shrink {
+  height: 100px; 
+  flex-shrink: 1; 
+  flex-grow: 1; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}

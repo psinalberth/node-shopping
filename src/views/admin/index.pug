@@ -1,0 +1,24 @@
+extends ../layouts/main-layout.pug
+
+block content
+  .container.is-fluid
+    main(style="padding: 1.5rem 0")
+      .columns.is-centered 
+        .column.is-half
+          .title
+            span.has-text-warning Admin 
+            span.has-text-grey-dark Section
+          p.subtitle.has-text-grey  Choose a category to manage
+          .columns.is-multiline
+            a.column(href="/admin/products").column.is-one-quarter
+              .notification.is-warning
+                span.icon-text
+                  span.icon
+                    i.fas.fa-shopping-cart
+                  span Products
+            a.column(href="/admin/users").is-one-quarter
+              .notification.is-warning
+                span.icon-text
+                  span.icon
+                    i.fas.fa-user
+                  span Users

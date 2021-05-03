@@ -1,0 +1,31 @@
+extends ../layouts/main-layout.pug
+block content
+  .container.is-fluid
+    main(style="padding: 1.5rem 0")
+      .columns.is-centered 
+        .column.is-half
+          h1.title Product Management
+          form(action="/admin/add-product", method="post") 
+            .field
+              label.label Title
+              .control
+                input.input(placeholder="Put some title", name="title", 
+                value=`${ editing ? product.title : '' }`)
+            .field
+              label.label URL
+              .control
+                input.input(type="url", placeholder="Put some image here", name="url", 
+                value=`${ editing ? product.imageUrl : '' }`)
+            .field
+              label.label Description
+              .control
+                textarea.textarea(placeholder="Put some description", name="description", rows="10")
+                  | #{ editing ? product.description : '' }
+            .field
+              label.label Price
+              .control
+                input.input(placeholder="Put some price", name="price", 
+                value=`${ editing ? product.price : '' }`)
+            .field
+              .control
+                button.button.is-warning #{ editing ? 'Update Product' : 'Add Product' }
