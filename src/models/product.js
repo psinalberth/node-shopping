@@ -29,7 +29,9 @@ const Product = sequelize.define('Product', {
 }, 
 {
   tableName: 'products',
-  timestamps: false
+  timestamps: true,
+  createdAt: 'created_at',
+  updatedAt: 'updated_at'
 });
 
 Product.belongsTo(User, {

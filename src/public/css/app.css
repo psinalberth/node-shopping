@@ -1,7 +1,7 @@
 @import url(../bulma/css/bulma.css);
 
 .text-shrink {
-  height: 100px; 
+  height: 3rem; 
   flex-shrink: 1; 
   flex-grow: 1; 
   overflow: hidden; 

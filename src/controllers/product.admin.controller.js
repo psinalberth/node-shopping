@@ -2,10 +2,10 @@ import path from 'path';
 import rootDir from '../utils/path';
 import ProductRepository from '../repository/product.repository';
 
-export default class ProductController {
+export default class ProductAdminController {
 
   static index(req, res, next) {
-    res.render(path.join(rootDir, 'views', 'shop', 'product.pug'), {
+    res.render(path.join(rootDir, 'views', 'admin', 'product', 'product.pug'), {
       editing: false
     });
   }
@@ -13,7 +13,7 @@ export default class ProductController {
   static findAll(req, res, next) {
     ProductRepository.findAll()
     .then(products => {
-      res.render(path.join(rootDir, 'views', 'shop', 'products.pug'), {
+      res.render(path.join(rootDir, 'views', 'admin', 'product', 'products.pug'), {
         products
       });
     })
@@ -25,7 +25,7 @@ export default class ProductController {
     ProductRepository.findByPk(productId)
       .then(product => {
         if (product) {
-          res.render(path.join(rootDir, 'views', 'shop', 'product.pug'), {
+          res.render(path.join(rootDir, 'views', 'admin', 'product', 'product.pug'), {
             editing: true,
             product
           });
@@ -39,24 +39,32 @@ export default class ProductController {
   static save(req, res, next) {
     const body = req.body;
     ProductRepository.save(body)
-      .then(() => res.redirect('/products'))
+      .then(() => res.redirect('/admin/products'))
       .catch(err => console.log(err));
   }
-
+  
   static update(req, res, next) {
     const productId = req.body.productId;
     const body = req.body;
     ProductRepository.update(productId, body)
-      .then(() => res.redirect('/products'))
+      .then(() => res.redirect('/admin/products'))
       .catch(err => console.log(err));
   }
 
-  static remove(req, res, next) {
-    const productId = req.params.productId;
-    ProductRepository.remove(productId)
-      .then(() => {
+  static delete(req, res, next) {
+    let productId = req.params.productId;
+    ProductRepository.deleteByPk(productId)
+      .then(() => res.redirect('/admin/products'))
+      .catch(err => console.log((err)));
+  }
 
-      })
-      .catch(err => console.log(err));
+  static activate(req, res, next) {
+    let productId = req.params.productId;
+    ProductRepository.activate(productId);
+  }
+
+  static deactivate(req, res, next) {
+    let productId = req.params.productId;
+    ProductRepository.deactivate(productId);
   }
 };

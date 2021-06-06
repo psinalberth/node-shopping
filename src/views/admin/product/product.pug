@@ -1,11 +1,11 @@
-extends ../layouts/main-layout.pug
+extends ../../layouts/main-layout.pug
 block content
   .container.is-fluid
     main(style="padding: 1.5rem 0")
       .columns.is-centered 
         .column.is-half
           h1.title Product Management
-          form(action=`/products/${ editing ? 'edit-product' : 'add-product' }`, method="post") 
+          form(action=`/admin/products/${ editing ?  product.id + '/edit-product' : 'add-product' }`, method="post") 
             .field
               label.label Title
               .control

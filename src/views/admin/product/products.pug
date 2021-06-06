@@ -1,4 +1,4 @@
-extends ../layouts/main-layout.pug
+extends ../../layouts/main-layout.pug
 
 block content
   .container.is-fluid
@@ -24,13 +24,12 @@ block content
                 .card-footer
                   .card-footer-item
                     .buttons
-                      button.button.is-warning
+                      a.button.is-warning(href=`products/${ product.id }/edit-product` alt="Edit product")
                         span.icon
-                          i.fas.fa-shopping-cart
-                        span Add to Cart
-                      button.button.is-light
-                        span.icon
-                          i.fas.fa-heart
-                        span Wishlist
+                          i.fas.fa-edit
+                      form(action=`/admin/products/${ product.id }/delete-product` method="post")
+                        button.button.is-light(alt="Delete product")
+                          span.icon
+                            i.fas.fa-trash
       else
         h1 Products not found
