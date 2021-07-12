@@ -1,9 +1,190 @@
-@import url(../bulma/css/bulma.css);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
-.text-shrink {
+/* .text-shrink {
   height: 3rem; 
   flex-shrink: 1; 
   flex-grow: 1; 
   overflow: hidden; 
   text-overflow: ellipsis;
+} */
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fafafa;
 }
+
+form {
+  display: inline;
+}
+
+.container {
+  padding: 0 2rem;
+}
+
+.main-header {
+  background-color: #ffdd57;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.main-header__brand,
+.main-header__item {
+  color: rgb(0 0 0 / 70%);
+  padding: 1rem 0.75rem;
+}
+
+.main-header__brand {
+  font-weight: bold;
+}
+
+.main-header > .main-header__brand {
+  color: rgb(0 0 0 / 70%);
+}
+
+.main-header__item {
+  color: #4a4a4a;
+  line-height: 1.5;
+  position: relative;
+}
+
+.main-header__brand:hover,
+.main-header__item:active,
+.main-header__item.active,
+.main-header__item:hover {
+  background-color: #ffd83d;
+}
+
+a {
+  text-decoration: none;
+}
+
+.primary-text {
+  color: #ffdd57;
+}
+
+.secondary-text {
+  color: #4a4a4a;
+}
+
+.subtitle {
+  color: #7a7a7a;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.main-title {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 0 2px 0.4em rgba(0, 0, 0, 0.26);
+}
+
+.card__header {
+  padding: 0 1rem;
+  height: 6.5rem;
+  display: flex;
+  align-items: stretch;
+  background-color: #eee;
+}
+
+.card__image {
+  width: 100%;
+  height: 20rem;
+}
+
+.card__image img {
+  width: 100%;
+}
+
+.card__content {
+  padding: 1rem;
+}
+
+.card__actions {
+  padding: 1rem;
+  text-align: center;
+}
+
+.card__actions button,
+.card__actions a {
+  margin: 0 0.25rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font: inherit;
+  border: 1px solid #aaa;
+  color: #4a4a4a;
+  background: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.primary-bg {
+  background-color: #ffdd57;
+}
+
+.secondary-bg {
+  background-color: #7a7a7a;
+}
+
+.form-control {
+  margin: 1rem 0;
+}
+
+.form-control label,
+.form-control input,
+.form-control textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.form-control input,
+.form-control textarea {
+  border: 1px solid #a1a1a1;
+  font: inherit;
+  font-size: 1.15rem;
+  border-radius: 4px;
+  color: #4a4a4a;
+}
+
+.form-control input {
+  height: 2rem;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  outline-color: #ffdd57;
+}
+
+.label {
+  color: #4a4a4a;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #ffdd57;
+  color: #4a4a4a;
+  font-size: large;
+  border-color: transparent;
+  font-weight: 600;
+}
+

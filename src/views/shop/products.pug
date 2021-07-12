@@ -1,36 +1,29 @@
 extends ../layouts/main-layout.pug
-
+block head
+  link(rel="stylesheet", href="/libraries/css/product.css")
 block content
-  .container.is-fluid
+  .container
     main(style="padding: 1.5rem 0")
-      .title
-        span.has-text-grey-dark Products
-        span.has-text-warning  for you! 
-      p.subtitle.has-text-grey Check out our catalog!
+      .main-title
+        span.secondary-text Products
+        span.primary-text  for you! 
+      p.subtitle Check out our catalog!
       if products.length > 0
-        .columns.is-multiline
+        .grid
           each product in products
-            .column.is-one-quarter
-              .card
-                .card-image(style="position: relative; width: 100%; padding: 17px 40px; height: 50%;")
-                  figure.image
-                    img(src=`${ product.imageUrl }`, style="height: 180px; width: 100%")
-                .card-content
-                  .content.text-shrink
-                    p.is-6 #{ product.title }
-                .card-content
-                  .content
-                    p.title.is-5 $ #{ product.price }
-                .card-footer
-                  .card-footer-item
-                    .buttons
-                      button.button.is-warning
-                        span.icon
-                          i.fas.fa-shopping-cart
-                        span Add to Cart
-                      button.button.is-light
-                        span.icon
-                          i.fas.fa-heart
-                        span Wishlist
+            .card.product
+              .card__header
+                h2.product__title.secondary-text #{ product.title }
+              .card__image
+                  img(src=`${ product.imageUrl }` alt=`${ product.title }`)
+              .card__content                
+                p.product__description #{ product.description }
+                p.product__price $#{ product.price }
+              .card__actions
+                form(action=`/cart/${ product.id }/add-product`, method="post")
+                  button.btn.primary-bg(alt="Add to cart")
+                    i.fas.fa-fw.fa-shopping-cart
+                a.btn(href=`/products/${ product.id }`)
+                  i.fas.fa-fw.fa-info
       else
         h1 Products not found

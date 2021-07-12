@@ -1,35 +1,21 @@
 extends ../layouts/main-layout.pug
+block head
+  link(rel="stylesheet", href="/libraries/css/product.css")
 block content
-  .container.is-fluid
-    main(style="padding: 1.5rem 0")
-      .columns.is-centered 
-        .column.is-half
-          h1.title Product Management
-          form(action=`/products/${ editing ? 'edit-product' : 'add-product' }`, method="post") 
-            .field
-              label.label Title
-              .control
-                input.input(placeholder="Put some title", name="title", 
-                value=`${ editing ? product.title : '' }`)
-            .field
-              label.label URL
-              .control
-                input.input(type="url", placeholder="Put some image here", name="imageUrl", 
-                value=`${ editing ? product.imageUrl : '' }`)
-            .field
-              label.label Description
-              .control
-                textarea.textarea(placeholder="Put some description", name="description", rows="10")
-                  | #{ editing ? product.description : '' }
-            .field
-              label.label Price
-              .control
-                input.input(placeholder="Put some price", name="price", 
-                value=`${ editing ? product.price : '' }`)
-
-            if editing
-                input.input(type="hidden" name="productId" value=`${ product.id }`)
-
-            .field
-              .control
-                button.button.is-warning #{ editing ? 'Update Product' : 'Add Product' }
+  .container
+    main(style="padding: 1.5rem 0; text-align: center")
+      h2.secondary-text #{ product.title }
+      div.details
+        img(src=`${ product.imageUrl }`, alt=`${ product.title }`, style="height: 20rem")
+        p.product__description #{ product.description }
+        span.product__price $ #{ product.price }
+      form(action=`/cart/${ product.id }/add-product`, method="post")
+        input(type="hidden", name="productId")
+        .form-control
+          button.btn.primary-bg(alt="Add to cart")
+            i.fas.fa-fw.fa-shopping-cart
+            span Add to cart
+      .form-control
+        a.btn(href="/products")
+          i.fas.fa-fw.fa-arrow-left
+          span Back

@@ -3,35 +3,12 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet", href="/libraries/bulma/css/bulma.css")
+    //- link(rel="stylesheet", href="/libraries/bulma/css/bulma.css")
     link(rel="stylesheet", href="/libraries/@fortawesome/fontawesome-free/css/all.css")
     link(rel="stylesheet", href="/libraries/css/app.css")
+    block head
     title NodeJS Shop
-  body.has-background-white-bis
-    nav.navbar.is-warning
-      .navbar-brand
-        a.navbar-item.has-text-weight-bold(href="/") NodeJS Shop
-        a.navbar-burger
-          span(aria-hidden="true")
-          span(aria-hidden="true")
-          span(aria-hidden="true")
-      .navbar-menu
-        .navbar-start
-          a.navbar-item.is-active Home
-          a.navbar-item(href="/products") Products
-          a.navbar-item(href="/admin") Admin
-        .navbar-end
-          .navbar-item
-            .buttons
-              a.button.is-warning(style="border: 1px solid #4a4a4a")
-                span.icon
-                  i.fas.fa-heart
-                span 0
-              a.button.is-warning(style="border: 1px solid #4a4a4a")
-                span.icon
-                  i.fas.fa-shopping-cart
-                span 0
-    .parent.has-background-white-bis
+  body
+    include main-navigation.pug
+    .parent
       block content
-    footer.footer.is-fixed
-      p 2021 - Some rights reserved.

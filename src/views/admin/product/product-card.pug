@@ -1,0 +1,20 @@
+.card
+  .card-image(style="position: relative; width: 100%; padding: 17px 40px; height: 50%;")
+    figure.image
+      img(src=`${ product.imageUrl }`, style="height: 180px; width: 100%")
+  .card-content
+    .content.text-shrink
+      p.is-6 #{ product.title }
+  .card-content
+    .content
+      p.title.is-5 $ #{ product.price }
+  .card-footer
+    .card-footer-item
+      .buttons
+        a.button.is-warning(href=`products/${ product.id }/edit-product` alt="Edit product")
+          span.icon
+            i.fas.fa-edit
+        form(action=`/admin/products/${ product.id }/delete-product` method="post")
+          button.button.is-light(alt="Delete product")
+            span.icon
+              i.fas.fa-trash

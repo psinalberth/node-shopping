@@ -4,32 +4,27 @@ block content
     main(style="padding: 1.5rem 0")
       .columns.is-centered 
         .column.is-half
-          h1.title Product Management
+          h1.title.secondary-text Product Management
           form(action=`/admin/products/${ editing ?  product.id + '/edit-product' : 'add-product' }`, method="post") 
-            .field
+            .form-control
               label.label Title
-              .control
-                input.input(placeholder="Put some title", name="title", 
-                value=`${ editing ? product.title : '' }`)
-            .field
+              input.input(placeholder="Put some title", name="title", 
+              value=`${ editing ? product.title : '' }`)
+            .form-control
               label.label URL
-              .control
-                input.input(type="url", placeholder="Put some image here", name="imageUrl", 
-                value=`${ editing ? product.imageUrl : '' }`)
-            .field
+              input.input(type="url", placeholder="Put some image here", name="imageUrl", 
+              value=`${ editing ? product.imageUrl : '' }`)
+            .form-control
               label.label Description
-              .control
-                textarea.textarea(placeholder="Put some description", name="description", rows="10")
-                  | #{ editing ? product.description : '' }
-            .field
+              textarea.textarea(placeholder="Put some description", name="description", rows="10")
+                | #{ editing ? product.description : '' }
+            .form-control
               label.label Price
-              .control
-                input.input(placeholder="Put some price", name="price", 
-                value=`${ editing ? product.price : '' }`)
+              input.input(placeholder="Put some price", name="price", 
+              value=`${ editing ? product.price : '' }`)
 
             if editing
-                input.input(type="hidden" name="productId" value=`${ product.id }`)
+              input.input(type="hidden" name="productId" value=`${ product.id }`)
 
-            .field
-              .control
-                button.button.is-warning #{ editing ? 'Update Product' : 'Add Product' }
+            .form-control
+              button.btn.btn-primary #{ editing ? 'Update Product' : 'Add Product' }

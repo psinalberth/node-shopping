@@ -3,6 +3,7 @@ import path from 'path';
 import rootDir from '../utils/path';
 import adminProductRouter from './admin.product.routes';
 import shopRouter from './shop.routes';
+import cartRouter from './cart.routes';
 
 const routes = Router();
 
@@ -13,5 +14,7 @@ routes.get('/admin', (req, res, next) => {
 });
 
 routes.use('/admin/products', adminProductRouter);
+
+routes.use('/cart', cartRouter);
 
 export default routes;
