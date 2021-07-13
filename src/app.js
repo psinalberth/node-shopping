@@ -2,8 +2,8 @@ import express from 'express';
 import path from 'path';
 import routes from './routes'
 import sequelize from './utils/database';
-import rootDir from './utils/path'
-import ErrorController from './controllers/error.controller'
+import rootDir from './utils/path';
+import ErrorController from './controllers/error.controller';
 
 const app = express();
 const DB_FORCE_SYNC = process.env.DB_FORCE_SYNC | 0;

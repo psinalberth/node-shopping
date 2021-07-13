@@ -1,6 +1,8 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../utils/database';
-import User from './user'
+import User from './user';
+import Cart from './cart';
+import CartItem from './cart-item';
 
 const Product = sequelize.define('Product', {
   id: {
@@ -38,6 +40,13 @@ Product.belongsTo(User, {
   constraints: true,
   onDelete: 'CASCADE',
   foreignKey: 'user_id'
+});
+
+Product.belongsToMany(Cart, {
+  constraints: true,
+  through: CartItem,
+  foreignKey: 'product_id',
+  otherKey: 'cart_id'
 });
 
 export default Product;

@@ -21,6 +21,6 @@ Cart.belongsTo(User, {
   constraints: true,
   onDelete: 'CASCADE',
   foreignKey: 'user_id'
-})
-  
+});
+
 export default Cart;

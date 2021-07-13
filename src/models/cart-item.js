@@ -1,6 +1,5 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../utils/database';
-import Cart from './cart';
 
 const CartItem = sequelize.define('CartItem', {
   id: {
@@ -18,12 +17,6 @@ const CartItem = sequelize.define('CartItem', {
   timestampts: true,
   createdAt: 'created_at',
   updatedAt: 'updated_at'
-});
-
-CartItem.belongsTo(Cart, {
-  contstraints: true,
-  onDelete: 'CASCADE',
-  foreignKey: 'cart_id'
 });
 
 export default CartItem;
