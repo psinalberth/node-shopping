@@ -1,68 +1,24 @@
 extends ../layouts/main-layout.pug
-
+block head
+  link(rel="stylesheet" href="/libraries/css/product.css")
+  link(rel="stylesheet", href="/libraries/css/_card.css")
 block content
-  main(style="padding: 1.5rem 0")
+  main(style="padding: 1.5rem 0")    
     .container
       .main-title
         span.primary-text Admin 
         span.secondary-text Section
-      p.subtitle.has-text-grey  Choose a category to manage
-      .grid
-        a.card(style="padding: 5rem; background: orange")
+      span.subtitle.has-text-grey  Choose a category to manage
+      .menu-container(style="padding: 3rem 0")
+        a.card.menu-item(href="/admin/products")
           i.fas.fa-fw.fa-box
           span Products
-        a.card(style="padding: 5rem; background: orange")
-          i.fas.fa-fw.fa-box
-          span Products
-        a.card(style="padding: 5rem; background: orange")
-          i.fas.fa-fw.fa-box
-          span Products
-        a.card(style="padding: 5rem; background: orange")
-          i.fas.fa-fw.fa-box
-          span Products
-        a.card(style="padding: 5rem; background: orange")
-          i.fas.fa-fw.fa-box
-          span Products
-        a.card(style="padding: 5rem; background: orange")
-          i.fas.fa-fw.fa-box
-          span Products
-
-      .columns.is-centered 
-        .column.is-half
-          .columns.is-multiline
-            a.column(href="/admin/products").column.is-one-quarter
-              .notification.is-warning
-                span.icon-text
-                  span.icon
-                    i.fas.fa-box
-                  span Products
-            a.column(href="/admin/users").is-one-quarter
-              .notification.is-warning
-                span.icon-text
-                  span.icon
-                    i.fas.fa-user
-                  span Users
-            a.column(href="/admin/users").is-one-quarter
-              .notification.is-warning
-                span.icon-text
-                  span.icon
-                    i.fas.fa-shopping-cart
-                  span Orders
-            a.column(href="/admin/users").is-one-quarter
-              .notification.is-warning
-                span.icon-text
-                  span.icon
-                    i.fas.fa-truck
-                  span Transport
-            a.column(href="/admin/users").is-one-quarter
-              .notification.is-warning
-                span.icon-text
-                  span.icon
-                    i.fas.fa-handshake
-                  span Partners
-            a.column(href="/admin/users").is-one-quarter
-              button.button.is-warning(style="padding: 1.25rem 2.5rem 1.25rem 1.5rem")
-                span.icon-text
-                  span.icon
-                    i.fas.fa-handshake
-                  span Partners
+        a.card.menu-item(href="/admin/users")
+          i.fas.fa-fw.fa-user
+          span Users
+        a.card.menu-item(href="/admin/orders")
+          i.fas.fa-fw.fa-shopping-cart
+          span Orders
+        a.card.menu-item(href="/admin/transport")
+          i.fas.fa-fw.fa-truck
+          span Transport

@@ -1,0 +1,35 @@
+extends ../layouts/main-layout.pug
+block head
+  link(rel="stylesheet" href="/libraries/css/cart.css")
+  link(rel="stylesheet", href="/libraries/css/_card.css")
+block content
+  main(style="padding: 1.5rem 0")    
+    .container
+      .main-title
+        span.secondary-text Your 
+        span.primary-text cart
+      span.subtitle.has-text-grey Check it out your current order
+      div(style="padding: 3rem 0")
+        for product in products
+          .card
+            .card__content.cart__item
+              img(src=`${ product.imageUrl }` alt=`${ product.title }`, style="width: 10rem")
+              span.secondary-text #{ product.title }
+              div
+                span.cart__item__title.secondary-text Quantity: 
+                span #{ product.CartItem.quantity }
+              div
+                span.cart__item__title.secondary-text Price: 
+                span #{ product.price }
+              form(action=`/cart/${ product.id }/remove-product` method="post")
+                  input(type="hidden", name="productId")
+                  button.btn(alt="Delete product")
+                    i.fas.fa-fw.fa-trash
+                    span Remove
+      div(style="display: flex; justify-content: center")
+        form
+          button.btn.btn-primary Order now
+        form(action=`/cart/reset` method="post")
+          button.btn Reset cart
+        a.btn(href="/products")
+          span Back to Shop

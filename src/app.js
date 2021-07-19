@@ -3,7 +3,9 @@ import path from 'path';
 import routes from './routes'
 import sequelize from './utils/database';
 import rootDir from './utils/path';
+import sync from './utils/sequelize-associations';
 import ErrorController from './controllers/error.controller';
+import User from './models/user';
 
 const app = express();
 const DB_FORCE_SYNC = process.env.DB_FORCE_SYNC | 0;
@@ -39,6 +41,17 @@ app.use(ErrorController.pageNotFound);
 sequelize.sync({
   force: DB_FORCE_SYNC
 })
+  .then(() => sync())
+  .then(result => {
+    return User.findByPk(1);
+    // console.log(result);
+  })
+  .then(user => {
+    if (!user) {
+      return User.create({ name: 'Max', email: 'test@test.com' });
+    }
+    return user;
+  })
   .then(() => {
     app.listen(PORT, () => console.log(`Listening at ${PORT} port...`));
   })

@@ -1,0 +1,11 @@
+.cart__item {
+  display: grid;
+  grid-template-columns: auto 20rem auto auto auto;
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart__item__title {
+  font-weight: 600;
+}

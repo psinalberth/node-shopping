@@ -1,15 +1,16 @@
 extends ../layouts/main-layout.pug
 block head
   link(rel="stylesheet", href="/libraries/css/product.css")
+  link(rel="stylesheet", href="/libraries/css/_card.css")
 block content
   .container
     main(style="padding: 1.5rem 0")
       .main-title
         span.secondary-text Products
         span.primary-text  for you! 
-      p.subtitle Check out our catalog!
+      span.subtitle Check out our catalog!
       if products.length > 0
-        .grid
+        .grid(style="padding: 3rem 0")
           each product in products
             .card.product
               .card__header

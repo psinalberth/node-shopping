@@ -1,0 +1,34 @@
+.form-control {
+  margin: 1rem 0;
+}
+
+.form-control label,
+.form-control input,
+.form-control textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.form-control input,
+.form-control textarea {
+  border: 1px solid #a1a1a1;
+  font: inherit;
+  font-size: 1.15rem;
+  border-radius: 4px;
+  color: #4a4a4a;
+}
+
+.form-control input {
+  height: 2rem;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  outline-color: #ffdd57;
+}
+
+.label {
+  color: #4a4a4a;
+  font-weight: bold;
+}

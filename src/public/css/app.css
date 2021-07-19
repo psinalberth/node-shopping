@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
-/* .text-shrink {
-  height: 3rem; 
-  flex-shrink: 1; 
-  flex-grow: 1; 
-  overflow: hidden; 
-  text-overflow: ellipsis;
-} */
-
 body {
   padding: 0;
   margin: 0;
@@ -83,46 +75,9 @@ a {
 }
 
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: stretch;
-}
-
-.card {
-  background-color: white;
-  box-shadow: 0 2px 0.4em rgba(0, 0, 0, 0.26);
-}
-
-.card__header {
-  padding: 0 1rem;
-  height: 6.5rem;
-  display: flex;
-  align-items: stretch;
-  background-color: #eee;
-}
-
-.card__image {
-  width: 100%;
-  height: 20rem;
-}
-
-.card__image img {
-  width: 100%;
-}
-
-.card__content {
-  padding: 1rem;
-}
-
-.card__actions {
-  padding: 1rem;
-  text-align: center;
-}
-
-.card__actions button,
-.card__actions a {
-  margin: 0 0.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-gap: 2.5rem 5rem;
 }
 
 .btn {
@@ -145,41 +100,6 @@ a {
   background-color: #7a7a7a;
 }
 
-.form-control {
-  margin: 1rem 0;
-}
-
-.form-control label,
-.form-control input,
-.form-control textarea {
-  display: block;
-  width: 100%;
-  margin-bottom: 0.5rem;
-}
-
-.form-control input,
-.form-control textarea {
-  border: 1px solid #a1a1a1;
-  font: inherit;
-  font-size: 1.15rem;
-  border-radius: 4px;
-  color: #4a4a4a;
-}
-
-.form-control input {
-  height: 2rem;
-}
-
-.form-control input:focus,
-.form-control textarea:focus {
-  outline-color: #ffdd57;
-}
-
-.label {
-  color: #4a4a4a;
-  font-weight: bold;
-}
-
 .btn-primary {
   background-color: #ffdd57;
   color: #4a4a4a;
@@ -188,3 +108,41 @@ a {
   font-weight: 600;
 }
 
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-gap: 50px;
+}
+
+.menu-item {
+  cursor: pointer;
+  text-align: center;
+  color: #4a4a4a;
+  font-size: 1.25rem;
+  padding: 3.5rem;
+}
+
+.menu-item:hover {
+  background-color: #ffd83d;
+}
+
+/* @media (min-width: 768px) {
+  nav.list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #side-menu-toggle {
+    display: none;
+  }
+
+  .menu-container {
+    display: grid;
+    grid-gap: 50px;
+  }
+
+  .grid {
+    display: grid;
+    grid-gap: 2.5rem 5rem;
+  }
+} */

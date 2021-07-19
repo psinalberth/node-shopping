@@ -3,6 +3,8 @@ import sequelize from '../utils/database';
 import User from './user';
 import Cart from './cart';
 import CartItem from './cart-item';
+import Order from './order';
+import OrderItem from './order-item';
 
 const Product = sequelize.define('Product', {
   id: {
@@ -47,6 +49,12 @@ Product.belongsToMany(Cart, {
   through: CartItem,
   foreignKey: 'product_id',
   otherKey: 'cart_id'
+});
+
+Product.belongsToMany(Order, {
+  through: OrderItem,
+  foreignKey: 'product_id',
+  otherKey: 'order_id'
 });
 
 export default Product;

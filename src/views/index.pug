@@ -1,8 +1,8 @@
 extends layouts/main-layout.pug
 
 block content
-  main
-    .hero.is-warning.is-medium
-      .hero-body.has-text-centered
-        p.title.is-2 Welcome to the very first NodeJS Shop!
-        p.subtitle.has-text-grey-darker Just the best for you
+  main(style="padding: 1.5rem 0")
+    .container
+      div(style="display: flex; align-items: center; justify-content: center; flex-direction: column; height: 50rem")
+        span.main-title.secondary-text Welcome to the very first NodeJS Shop!
+        span.subtitle.has-text-grey-darker Just the best for you
