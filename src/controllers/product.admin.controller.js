@@ -6,7 +6,8 @@ export default class ProductAdminController {
 
   static index(req, res, next) {
     res.render(path.join(rootDir, 'views', 'admin', 'product', 'product.pug'), {
-      editing: false
+      editing: false,
+      path: '/admin'
     });
   }
 
@@ -14,7 +15,8 @@ export default class ProductAdminController {
     ProductRepository.findAll()
     .then(products => {
       res.render(path.join(rootDir, 'views', 'admin', 'product', 'products.pug'), {
-        products
+        products,
+        path: '/admin'
       });
     })
     .catch(err => console.log(err));
@@ -27,7 +29,8 @@ export default class ProductAdminController {
         if (product) {
           res.render(path.join(rootDir, 'views', 'admin', 'product', 'product.pug'), {
             editing: true,
-            product
+            product,
+            path: '/admin'
           });
         } else {
           res.status(404).render(path.join(rootDir, 'views', 'error', '404.pug'));

@@ -1,0 +1,11 @@
+.order__item {
+  display: grid;
+  grid-template-columns: 20rem 20rem auto auto auto;
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.order__item__title {
+  font-weight: 600;
+}

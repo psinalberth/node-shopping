@@ -1,8 +1,8 @@
 header.main-header
   nav.list
     a.main-header__brand(href="/") NodeJS Shop
-    a.main-header__item(href="/products") Products
-    a.main-header__item(href="/") Orders
+    a.main-header__item(href="/products" class=`${ path === '/products' ? 'active': '' }`) Products
+    a.main-header__item(href="/orders" class=`${ path === '/orders' ? 'active': '' }`) Orders
     a.main-header__item(href="/") Testimonials
-    a.main-header__item(href="/admin") Admin
-    a.main-header__item(href="/cart") Cart
+    a.main-header__item(href="/admin" class=`${ path === '/admin' ? 'active' : '' }`) Admin
+    a.main-header__item(href="/cart" class=`${ path === '/cart' ? 'active' : '' }`) Cart

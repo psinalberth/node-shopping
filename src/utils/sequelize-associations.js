@@ -14,6 +14,7 @@ export default function sync() {
   });
 
   Order.belongsToMany(Product, {
+    as: 'products',
     through: OrderItem,
     foreignKey: 'order_id',
     otherKey: 'product_id'

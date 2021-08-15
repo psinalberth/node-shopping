@@ -27,7 +27,7 @@ block content
                     i.fas.fa-fw.fa-trash
                     span Remove
       div(style="display: flex; justify-content: center")
-        form
+        form(action="/cart/order" method="post")
           button.btn.btn-primary Order now
         form(action=`/cart/reset` method="post")
           button.btn Reset cart

@@ -11,4 +11,6 @@ routes.post('/:productId/remove-product', CartController.removeProduct);
 
 routes.post('/reset', CartController.clean);
 
+routes.post('/order', CartController.order);
+
 export default routes;

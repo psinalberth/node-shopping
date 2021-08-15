@@ -4,7 +4,6 @@ import routes from './routes'
 import sequelize from './utils/database';
 import rootDir from './utils/path';
 import sync from './utils/sequelize-associations';
-import ErrorController from './controllers/error.controller';
 import User from './models/user';
 
 const app = express();
@@ -30,22 +29,13 @@ app.use('/libraries', express.static(path.join(rootDir, 'public')));
 
 app.use(routes);
 
-app.get('/', (req, res, next) => {
-  res.render(path.join(__dirname, 'views', 'index.pug'));
-});
-
-app.use(ErrorController.pageNotFound);
-
 // Database synchronization
 
 sequelize.sync({
   force: DB_FORCE_SYNC
 })
   .then(() => sync())
-  .then(result => {
-    return User.findByPk(1);
-    // console.log(result);
-  })
+  .then(() => User.findByPk(1))
   .then(user => {
     if (!user) {
       return User.create({ name: 'Max', email: 'test@test.com' });
