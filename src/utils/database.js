@@ -1,15 +1,22 @@
-import Sequelize from 'sequelize';
+import * as mongodb from 'mongodb';
+const mongoClient = mongodb.MongoClient;
 
-const sequelize = new Sequelize(
-  process.env.MYSQL_DATABASE, 
-  process.env.MYSQL_ROOT_USER,
-  process.env.MYSQL_ROOT_PASSWORD, 
-  {
-    charset: process.env.MYSQL_CHARSET,
-    collate: process.env.MYSQL_COLLATE,
-    dialect: process.env.MYSQL_DIALECT,
-    port: process.env.MYSQL_PORT
-  }
-);
+let _db;
 
-export default sequelize;
+const mongoConnect = (callback) => {
+
+  mongoClient.connect('mongodb://root:password@localhost:27019/test?retryWrites=true')
+    .then(client => {
+      _db = client.db();
+      callback();
+    })
+    .catch(err => console.log(err));
+};
+
+const getDb = () => {
+  if (_db) return _db;
+  throw 'No database found!'
+}
+
+
+export { mongoConnect, getDb };
