@@ -1,6 +1,6 @@
 extends ../../layouts/main-layout.pug
 block head
-  link(rel="stylesheet", href="/libraries/css/_form.css")
+  link(rel="stylesheet" href="/libraries/css/_form.css")
 block content
   .container.is-fluid
     main(style="padding: 1.5rem 0")
@@ -18,7 +18,7 @@ block content
               value=`${ editing ? product.imageUrl : '' }`)
             .form-control
               label.label Description
-              textarea.textarea(placeholder="Put some description", name="description", rows="10")
+              textarea.textarea(placeholder="Put some description" name="description" rows="10")
                 | #{ editing ? product.description : '' }
             .form-control
               label.label Price
@@ -29,4 +29,4 @@ block content
               input.input(type="hidden" name="productId" value=`${ product.id }`)
 
             .form-control
-              button.btn.btn-primary #{ editing ? 'Update Product' : 'Add Product' }
+              button.btn.btn-primary #{ editing ? 'Update Product' : 'Add Product' } 

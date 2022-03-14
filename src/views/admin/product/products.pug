@@ -1,7 +1,7 @@
 extends ../../layouts/main-layout.pug
 block head
-  link(rel="stylesheet", href="/libraries/css/product.css")
-  link(rel="stylesheet", href="/libraries/css/_card.css")
+  link(rel="stylesheet" href="/libraries/css/product.css")
+  link(rel="stylesheet" href="/libraries/css/_card.css")
 block content
   .container
     main(style="padding: 1.5rem 0")
@@ -17,14 +17,14 @@ block content
               .card__header
                 h2.product__title.secondary-text #{ product.title }
               .card__image
-                  img(src=`${ product.imageUrl }` alt=`${ product.title }`)
+                img(src=`${ product.imageUrl }` alt=`${ product.title }`)
               .card__content                
                 p.product__description #{ product.description }
                 p.product__price $#{ product.price }
               .card__actions
-                a.btn.primary-bg(href=`products/${ product.id }/edit-product` alt="Edit product")
+                a.btn.primary-bg(href=`products/${ product._id }/edit-product` alt="Edit product")
                   i.fas.fa-fw.fa-edit
-                form(action=`/admin/products/${ product.id }/delete-product` method="post")
-                  input(type="hidden", name="productId")
+                form(action=`/admin/products/${ product._id }/delete-product` method="post")
+                  input(type="hidden" name="productId")
                   button.btn(alt="Delete product")
                     i.fas.fa-fw.fa-trash

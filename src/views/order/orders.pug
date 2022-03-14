@@ -1,7 +1,7 @@
 extends ../layouts/main-layout.pug
 block head
   link(rel="stylesheet" href="/libraries/css/order.css")
-  link(rel="stylesheet", href="/libraries/css/_card.css")
+  link(rel="stylesheet" href="/libraries/css/_card.css")
 block content
   main(style="padding: 1.5rem 0")    
     .container
@@ -13,7 +13,6 @@ block content
         for order in orders
           .card
             .card__content
-              p.secondary-text.order__item__title Order ##{ order.id }
-              p #{ order.products.length } item(s)
-              a.btn(href=`/orders/${ order.id }`) Details
-              
+              p.secondary-text.order__item__title Order ##{ order._id }
+              p #{ order.items.length } item(s)
+              a.btn(href=`/orders/${ order._id }`) Details

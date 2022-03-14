@@ -1,22 +1,21 @@
 extends ../layouts/main-layout.pug
 block head
   link(rel="stylesheet" href="/libraries/css/order.css")
-  link(rel="stylesheet", href="/libraries/css/_card.css")
+  link(rel="stylesheet" href="/libraries/css/_card.css")
 block content
   main(style="padding: 1.5rem 0")    
     .container
       .main-title
-        span.secondary-text Order ##{ order.id }
+        span.secondary-text Order ##{ order._id }
       div(style="padding: 3rem 0")
-        for product in order.products
+        for product in order.items
           .card
             .card__content.order__item
               img(src=`${ product.imageUrl }` alt=`${ product.title }`, style="width: 10rem")
               span.secondary-text #{ product.title }
               div
                 span.cart__item__title.secondary-text Quantity: 
-                span #{ product.OrderItem.quantity }
+                span #{ product.quantity }
               div
                 span.cart__item__title.secondary-text Price: 
                 span #{ product.price }
-              

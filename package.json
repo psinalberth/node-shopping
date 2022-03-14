@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start:dev": "nodemon  -r dotenv/config --exec babel-node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "css-build": "node-sass --omit-source-map-url src/public/scss/app.scss src/public/css/app.css"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -17,8 +16,6 @@
     "express": "^4.17.1",
     "mongodb": "^4.1.1",
     "mysql2": "^2.2.5",
-    "node-sass": "^5.0.0",
-    "node-sass-middleware": "^0.11.0",
     "pug": "^3.0.2",
     "sequelize": "^6.6.2"
   },

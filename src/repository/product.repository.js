@@ -1,6 +1,5 @@
-import Product from '../models/product';
+import Product from "../models/product";
 export default class ProductRepository {
-
   static findAll() {
     return Product.findAll();
   }
@@ -11,27 +10,23 @@ export default class ProductRepository {
 
   static save(product) {
     return Product.create(product, {
-      fields: [ 'title', 'description', 'imageUrl', 'price' ]
-    })
+      fields: ["title", "description", "imageUrl", "price"],
+    });
   }
 
   static update(productId, product) {
     return Product.findByPk(productId)
-      .then(savedProduct => savedProduct.update(product))
-      .catch(error => console.log(error));
+      .then(() => Product.update(product))
+      .catch((error) => console.log(error));
   }
 
   static deleteByPk(productId) {
     return Product.findByPk(productId)
-      .then(savedProduct => savedProduct.destroy())
-      .catch(error => console.log(error));
+      .then(() => Product.deleteByPk(productId))
+      .catch((error) => console.log(error));
   }
 
-  static activate(productId) {
+  static activate(productId) {}
 
-  }
-
-  static deactivate(productId) {
-    
-  }
-};
+  static deactivate(productId) {}
+}

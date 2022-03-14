@@ -1,7 +1,7 @@
 extends ../layouts/main-layout.pug
 block head
   link(rel="stylesheet" href="/libraries/css/cart.css")
-  link(rel="stylesheet", href="/libraries/css/_card.css")
+  link(rel="stylesheet" href="/libraries/css/_card.css")
 block content
   main(style="padding: 1.5rem 0")    
     .container
@@ -17,15 +17,15 @@ block content
               span.secondary-text #{ product.title }
               div
                 span.cart__item__title.secondary-text Quantity: 
-                span #{ product.CartItem.quantity }
+                span #{ product.quantity }
               div
                 span.cart__item__title.secondary-text Price: 
                 span #{ product.price }
-              form(action=`/cart/${ product.id }/remove-product` method="post")
-                  input(type="hidden", name="productId")
-                  button.btn(alt="Delete product")
-                    i.fas.fa-fw.fa-trash
-                    span Remove
+              form(action=`/cart/${ product._id }/remove-product` method="post")
+                input(type="hidden" name="productId")
+                button.btn(alt="Delete product")
+                  i.fas.fa-fw.fa-trash
+                  span Remove
       div(style="display: flex; justify-content: center")
         form(action="/cart/order" method="post")
           button.btn.btn-primary Order now
