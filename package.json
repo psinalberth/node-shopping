@@ -15,9 +15,8 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@types/sequelize": "^4.28.10",
     "express": "^4.17.1",
+    "mongoose": "^6.9.0",
     "mysql2": "^2.2.5",
-    "node-sass": "^5.0.0",
-    "node-sass-middleware": "^0.11.0",
     "pug": "^3.0.2",
     "sequelize": "^6.6.2"
   },
