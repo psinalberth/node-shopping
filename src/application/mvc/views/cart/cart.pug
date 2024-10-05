@@ -1,0 +1,35 @@
+extends ../index.pug
+block head
+    style
+        include ../../styles/cart.css
+block content
+    .container
+        .section-header
+            span Your
+            span.highlight shopping cart
+        if items.length > 0
+            table
+                thead
+                    tr
+                        th Name
+                        th Description
+                        th Price
+                        th(style="text-align: center") Quantity
+                        th(style="text-align: center") Remove
+                tbody
+                    each item in items
+                        tr
+                            td #{ item.name }
+                            td #{ item.description }
+                            td #{ item.price }
+                            td(style="text-align: center") #{ item.quantity }
+                            td(style="text-align: center")
+                                form(
+                                    action=`/cart/${item._id}/remove`,
+                                    method="post"
+                                )
+                                    button.submit
+                                        i.fas.fa-2x.fa-remove
+            .actions
+                form(action="/orders", method="post")
+                    button.btn Order Now

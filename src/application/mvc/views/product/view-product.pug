@@ -1,0 +1,20 @@
+extends ../index.pug
+block head
+    style
+        include ../../styles/product.css
+block content
+    .container
+        .product-row
+            .product-image
+                img(src="https://via.placeholder.com/500")
+            .product-details
+                .product-header #{ product.name }
+                .product-price $ #{ product.price }
+                .product-description
+                    p #{ product.description }
+                .product-actions
+                    form(
+                        action=`/products/${product.id}/add-to-cart`,
+                        method="post"
+                    )
+                        button.btn Buy me

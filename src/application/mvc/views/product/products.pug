@@ -1,0 +1,54 @@
+extends ../index.pug
+block head
+    style
+        include ../../styles/grid.css
+        include ../../styles/card.css
+        include ../../styles/product.css
+block content
+    .container
+        .section-header
+            span Our
+            span.highlight Products
+
+        .grid
+            .product
+                .product-image
+                    img(
+                        src="https://placehold.co/300/EEEEEE/AAAAAA/png?text=Add+Product"
+                    )
+                    .product-actions
+                        form(action="/products/add-product", method="get")
+                            button.submit
+                                i.fas.fa-plus
+            if products.length > 0
+                each product in products
+                    .product
+                        .product-image
+                            img(
+                                src="https://placehold.co/300/EEEEEE/AAAAAA/png"
+                            )
+                            .product-actions
+                                a(
+                                    href=`/products/${product.id}/view-product`,
+                                    alt="Edit product"
+                                ) 
+                                    i.fas.fa-heart
+                                a(
+                                    href=`/products/${product.id}/edit-product`,
+                                    alt="Edit product"
+                                ) 
+                                    i.fas.fa-edit
+                                a(
+                                    href=`/products/${product.id}/remove`,
+                                    alt="Remove product"
+                                )
+                                    i.fas.fa-trash
+
+                                //- form(
+                                //-     action=`/products/${product.id}/add-to-cart`,
+                                //-     method="post"
+                                //- )
+                                //- button.btn Buy me
+                        .product-info
+                            p #{ product.name }
+                            p.product-price $#{ product.price }

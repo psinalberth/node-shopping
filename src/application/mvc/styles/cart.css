@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+    font-size: 1.25rem;
+}
+
+th {
+    text-align: left;
+}
+
+tr {
+    padding: 2rem;
+}

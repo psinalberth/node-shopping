@@ -1,0 +1,39 @@
+extends ../index.pug
+block head
+    style
+        include ../../styles/form.css
+block content
+    .container
+        .section-header
+            span.highlight Add Product
+        form(
+            action=`/products/${editing ? product.id + '/edit-product': 'add-product'}`,
+            method="post"
+        )
+            .form-control
+                label.label Name
+                input(
+                    placeholder="Your product name",
+                    name="name",
+                    value=`${editing ? product.name: ''}`
+                )
+            .form-control
+                label.label Description
+                input(
+                    placeholder="Describe it for us",
+                    name="description",
+                    value=`${editing ? product.description: ''}`
+                )
+            .form-control
+                label.label Price
+                input(
+                    placeholder="How much?",
+                    name="price",
+                    value=`${editing ? product.price: ''}`
+                )
+
+            if editing
+                input(type="hidden", name="productId", value=`${ product.id }`)
+
+            .form-control
+                button.btn Save Product
